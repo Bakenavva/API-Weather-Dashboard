@@ -14,7 +14,7 @@ This is a TypeScript OOP project that uses OpenWeatherAPI to serve live weather 
 - [Questions](#questions)
 
 ## Installation
-If running this repo locally via git clone, use the following commands:
+If running this repo locally via git clone, use the following commands at the root:
 
 ```bash
 npm i 
