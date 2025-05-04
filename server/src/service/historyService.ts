@@ -1,4 +1,18 @@
+import fs from 'fs/promises';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 // TODO: Define a City class with name and id properties
+class City {
+  
+  constructor(
+    public id: number,
+    public name: string,
+  ) {}
+  
+}
 
 // TODO: Complete the HistoryService class
 class HistoryService {
