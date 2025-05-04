@@ -53,8 +53,9 @@ class WeatherService {
   }
   
   // TODO: Create buildGeocodeQuery method
-  // private buildGeocodeQuery(): string {}
-  
+  private buildGeocodeQuery(city: string): string { 
+    return `${this.baseURL}/data/2.5/weather?q=${city}&appid=${this.apiKey}`;
+  }
   
   // TODO: Create buildWeatherQuery method
   // private buildWeatherQuery(coordinates: Coordinates): string {}
