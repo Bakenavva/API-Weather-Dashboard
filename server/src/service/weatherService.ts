@@ -42,8 +42,15 @@ class WeatherService {
   }
   
   // TODO: Create destructureLocationData method
-  // private destructureLocationData(locationData: Coordinates): Coordinates {}
-  
+  private destructureLocationData(locationData: any): Coordinates { 
+    return {
+      name: locationData.name,
+      lat: locationData.coord.lat,
+      long: locationData.coord.lon,
+      country: locationData.sys.country,
+      state: locationData.state || ""
+    }
+  }
   
   // TODO: Create buildGeocodeQuery method
   // private buildGeocodeQuery(): string {}
