@@ -79,8 +79,26 @@ class WeatherService {
   }
   
   // TODO: Build parseCurrentWeather method
-  // private parseCurrentWeather(response: any) {}
-  
+  private parseCurrentWeather(response: any) { 
+    if (!response || !response.list || !response.city) {
+      throw new Error("Invalid weather data")
+    }
+
+    const weatherData = response.list[0];
+    const cityData = response.city;
+
+    const currentWeather = new Weather(
+      weatherData.main.temp,
+      weatherData.main.humidity,
+      weatherData.wind.speed,
+      weatherData.dt_txt.split(" ")[0],
+      weatherData.weather[0].icon,
+      weatherData.weather[0].description,
+      cityData.name
+    )
+    console.log(weatherData.main.temp);
+    return currentWeather;
+  }
   
   // TODO: Complete buildForecastArray method
   // private buildForecastArray(currentWeather: Weather, weatherData: any[]) {}
