@@ -101,8 +101,26 @@ class WeatherService {
   }
   
   // TODO: Complete buildForecastArray method
-  // private buildForecastArray(currentWeather: Weather, weatherData: any[]) {}
-  
+  private buildForecastArray(weatherData: any[], name: string): Weather[] {
+    const forecastMap: { [key: string]: Weather } = {};
+
+    weatherData.forEach(item => {
+      const date = new Date(item.dt * 1000).toISOString().split("T")[0];
+
+      if (!forecastMap[date] && Object.keys(forecastMap).length < 5) {
+        forecastMap[date] = new Weather(
+          item.main.temp,
+          item.main.humidity,
+          item.wind.speed,
+          item.dt_txt.split(" ")[0],
+          item.weather[0].icon,
+          item.weather[0].description,
+          name
+        );
+      }
+    })
+    return Object.values(forecastMap);
+  }
   
   // TODO: Complete getWeatherForCity method
   // async getWeatherForCity(city: string) {}
